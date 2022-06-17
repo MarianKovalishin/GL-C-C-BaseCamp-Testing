@@ -1,1 +1,38 @@
-sad
+#include <string>
+#include <iostream>
+#include <filesystem>
+#include <vector>
+using namespace std;
+namespace fs = filesystem;
+
+int main() {
+
+	bool file_found = false;
+	string path = "C:/folder_for_searching/";
+	vector <string> pathes_now{ path };
+	vector <string> pathes_next;
+
+
+	while (!file_found)
+	{
+		for (const auto p : pathes_now) // find in every directory
+		{
+			for (const auto& dir : fs::directory_iterator(p)) // find in every folder in this directory
+			{
+				if (dir.path().extension() == """") // if it`s a folder, then add it to next search
+					pathes_next.push_back(dir.path().string()+'/'); // last slash only for better reading
+				else if (dir.path().filename() == "to_find.txt") // if we found our file, then print directory and stop whole cycle
+				{
+					file_found = true;
+					cout << dir.path() << endl;
+					break;
+				}
+			}
+		}
+
+		pathes_now = pathes_next;
+		pathes_next.clear(); // clear for new directories
+	}
+
+	return 0;
+}
