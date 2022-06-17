@@ -1,3 +1,3 @@
 There is a problem with system files such a "System Volume Information" folder,
-so I decided to skip all "unpredictable" folders and start searching not from "C:\",
-but from "C:\folder_for_searching". Here I`ll put folders and file, that I need to find.
+so I decided to skip all "unpredictable" files/folders and start searching not from "C:\",
+but from "C:\folder_for_searching". Here I`ll put folders and files, that I need to find.
