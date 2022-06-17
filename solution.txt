@@ -20,7 +20,7 @@ int main() {
 			for (const auto& dir : fs::directory_iterator(p)) // find in every folder in this directory
 			{
 				if (dir.path().extension() == """") // if it`s a folder, then add it to next search
-					pathes_next.push_back(dir.path().string()+'/'); // last slash only for better reading
+					pathes_next.push_back(dir.path().string()+'/'); // slash only for better reading
 				else if (dir.path().filename() == "to_find.txt") // if we found our file, then print directory and stop whole cycle
 				{
 					file_found = true;
